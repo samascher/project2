@@ -9,14 +9,24 @@ db.Artist.remove({}, function(err,artists){
 
 var test = [
 {
-	artist: "Cherub",
-	track: "XOXO",
-	album: "MoM & DaD",
-},
-{
 	artist: "Abhi the Nomad",
 	track: "Somebody to Love",
 	album: "Somebody to Love Single",
+},
+{
+	artist: "Cage the Elephant",
+	track: "Trouble",
+	album: "Trouble",
+},
+{
+	artist: "Ghostland Observatory",
+	track: "Give Me the Beat",
+	album: "Codename: Rondo",
+},
+{
+	artist: "Cherub",
+	track: "XOXO",
+	album: "MoM & DaD",
 },
 {
 	artist: "LCD Soundsystem",

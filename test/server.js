@@ -7,3 +7,5 @@ http.createServer(function(request, response) {
   response.write("Hello World");
   response.end();
 }).listen(3000);
+
+app.listen(process.env.PORT || 3000);
