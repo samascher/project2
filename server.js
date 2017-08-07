@@ -1,13 +1,12 @@
 //setting up Express
 var express = require('express');
-var http = require("http");
 var app = express();
-var passport = require('passport');
-var flash = require('connect-flash');
-var morgan = require('morgan');
+var passport     = require('passport');
+var flash        = require('connect-flash');
+var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
+var bodyParser 	 = require('body-parser');
+var session      = require('express-session');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,12 +24,14 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
 
-require('./config/passport', passport);
+require('./config/passport')(passport);
 
 app.use(function (req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 });
+
+
 
 //require routes
 var routes = require('./config/routes');

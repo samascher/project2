@@ -1,3 +1,4 @@
+
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 var Search = require('./search');

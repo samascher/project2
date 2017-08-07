@@ -1,84 +1,80 @@
 var db = require('../models');
 var express = require('express');
 var router = express.Router();
-var passport = require("passport");
-
-// Parses information from POST method(s)
+// Parses information from POST
 var bodyParser = require('body-parser');
-// Used to manipulate POST method(s)
+// Used to manipulate POST methods
 var methodOverride = require('method-override');
+var passport = require("passport");
+var usersController = require('../controllers/users');
+var staticsController = require('../controllers/statics');
+var artistsController = require('../controllers/artists');
 
-var usersController = ('../controllers/users');
-var staticsController = ('../controllers/statics');
-var artistController = ('../controllers/artists');
-
-function authenticatedUser(req, res, next){
-	//if user is authenticated, then we continue
+function authenticatedUser(req, res, next) {
+	//if user is authenticated, we continue
 	if (req.isAuthenticated()) return next();
-	//else req is redirected to the home
+	//otherwise req is redirected to home
 	res.redirect('/');
 }
-
-// homepage
-
+//home page
 router.route('/')
   .get(staticsController.home);
-
+//create new account
 router.route('/signup')
   .get(usersController.getSignup)
-  .post(usersController.postSignup);
-
+  .post(usersController.postSignup)
+//log into account
 router.route('/login')
   .get(usersController.getLogin)
-  .post(usersController.postLogin);
+  .post(usersController.postLogin)
 
+router.route('/secret')
+  .get(authenticatedUser, usersController.secret)  
+//log out of account
 router.route("/logout")
-  .get(usersController.getLogout);
+  .get(usersController.getLogout)
 
- router.route("/secret")
- 	.get(authenticatedUser, usersController.secret);
-
-// main app page
+//Playlist app page
 router.route('/songify')
-	.get(staticsController.appPage);
-	//must log in to acces this page tho
-	//.get(authenticatedUser, staticsController.appPage) ?? 
+  .get(staticsController.appPage);
+  //login to access this page
+  //.get(authenticatedUser, staticsController.appPage);
 
-// Current user search history
+//Current user search history
 router.route('/userpage')
-	.get(staticsController.userPage);
+  .get(staticsController.userPage)
 router.route('/userpage/searches')
-	.get(authenticatedUser, artistController.userSearchData);
+  .get(authenticatedUser, artistsController.userSearchData)
 router.route('/userpage/searches/:searchId')
-	.delete(authenticatedUser, artistController.deleteSearchData);
+  .delete(authenticatedUser, artistsController.deleteSearchData)
 
 router.route('/songify/:artist')
-	.get(artistController.getArtistIds);
-	// .post(artistController.getArtistIds);
+  .get(artistsController.getArtistIds)
+  //.post(artistsController.postArtistIds)
 
-//search data for any user - like anything anywhere
+//overall search data for any user
 router.route('/searches')
-	.get(artistController.getSearches)
-	// .post(authenticatedUser, artistController.postSearch)
-	.post(artistController.postSearch);
+  .get(artistsController.getSearches)
+  //.post(authenticatedUser, artistsController.postSearch)
+  .post(artistsController.postSearch)
 
 router.route('/searches/:id')
-	.get(artistController.getOneSearch)
-	.put(artistController.editOneSearch)
-	.delete(artistController.deleteSearch);
+  .get(artistsController.getOneSearch)
+  .put(artistsController.editOneSearch)
+  .delete(artistsController.deleteSearch)
 
 //user info
-router.route('/user')
-	.get(usersController.userData);
+ router.route('/user')
+   .get(usersController.userData)
 
-router.route('/mysearches');
-	// .get(authenticatedUser, artistController.userSearchData)
+ router.route('/mysearches')
+   //.get(authenticatedUser, artistsController.userSearchData)
 
 // router.get('/', function (req, res) {
 // 	res.json({message: 'hello world'});
 // });
 
-//*****RESTful ROUTES******
+//*****INIT SEED DATA REST ROUTES******
 
 //show all artists
 router.get('/api/artists', function (req, res) {
@@ -145,29 +141,24 @@ router.delete('/api/artists/:id', function (req, res) {
 
 // var test = [
 // {
-// 	artist: "Abhi the Nomad",
-// 	track: "Somebody to Love",
-// 	album: "Somebody to Love Single",
+// 	artist: "Spoon",
+// 	track: "Fitted Shirt",
+// 	album: "Kill the Moonlight"
 // },
 // {
-// 	artist: "Cage the Elephant",
-// 	track: "Trouble",
-// 	album: "Trouble",
+// 	artist: "Autlux",
+// 	track: "Sugarless",
+// 	album: "Future Perfect"
 // },
 // {
-// 	artist: "Ghostland Observatory",
-// 	track: "Give Me the Beat",
-// 	album: "Codename: Rondo",
+// 	artist: "Pixies",
+// 	track: "Wave of Mutilation",
+// 	album: "Doolittle"
 // },
 // {
-// 	artist: "Cherub",
-// 	track: "XOXO",
-// 	album: "MoM & DaD",
-// },
-// {
-// 	artist: "LCD Soundsystem",
-// 	track: "I Can Change",
-// 	album: "This is Happening",
+// 	artist: "Interpol",
+// 	track: "PDA",
+// 	album: "Turn on the Bright Lights"
 // },
 // ];
 
@@ -177,6 +168,10 @@ router.delete('/api/artists/:id', function (req, res) {
 // app.get('/api/artists', function artistIndex(req, res) {
 // 	res.json({test : test});
 // });
+
+
+
+
 
 //export routes
 module.exports = router;

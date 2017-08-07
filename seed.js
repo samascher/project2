@@ -1,45 +1,42 @@
-var db = require('/.models');
 
-db.Artist.remove({}, function(err,artists){
+var db = require('./models');
+
+db.Artist.remove({}, function(err, artists) {
 	if (err) {
 		console.log("Error: ", err);
-	}
+		}
 	console.log('removed all artists');
 });
 
 var test = [
 {
-	artist: "Abhi the Nomad",
-	track: "Somebody to Love",
-	album: "Somebody to Love Single",
+	artist: "Spoon",
+	track: "Fitted Shirt",
+	album: "Kill the Moonlight"
 },
 {
-	artist: "Cage the Elephant",
-	track: "Trouble",
-	album: "Trouble",
+	artist: "Autlux",
+	track: "Sugarless",
+	album: "Future Perfect"
 },
 {
-	artist: "Ghostland Observatory",
-	track: "Give Me the Beat",
-	album: "Codename: Rondo",
+	artist: "Pixies",
+	track: "Wave of Mutilation",
+	album: "Doolittle"
 },
 {
-	artist: "Cherub",
-	track: "XOXO",
-	album: "MoM & DaD",
-},
-{
-	artist: "LCD Soundsystem",
-	track: "I Can Change",
-	album: "This is Happening",
+	artist: "Interpol",
+	track: "PDA",
+	album: "Turn on the Bright Lights"
 },
 ];
 
-db.Artist.create(test, function(err, artists){
+
+db.Artist.create(test, function(err, artists) {
 	if (err) {
-		console.log("Error: ", err);
+		console.log("Error:", err);
 	} else {
-		console.log("Created new artists", artists);
-		process.exit();
+	console.log("Created new artists", artists);
+	process.exit();
 	}
 });
