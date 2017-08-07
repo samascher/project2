@@ -20,25 +20,23 @@ function authenticatedUser(req, res, next){
 }
 
 // homepage
+
 router.route('/')
-	.get(staticsController.home);
+  .get(staticsController.home);
 
-// create a new acconut
 router.route('/signup')
-	.get(usersController.getSignup)
-	.post(usersController.postSignup);
+  .get(usersController.getSignup)
+  .post(usersController.postSignup);
 
-//log in to new account
 router.route('/login')
-	.get(usersController.getLogin)
-	.post(usersController.postLogin);
+  .get(usersController.getLogin)
+  .post(usersController.postLogin);
 
-router.route('/secret');
-	.get(authenticatedUser, usersController.secret);
+router.route("/logout")
+  .get(usersController.getLogout);
 
-//log out of account
-router.route('/logout')
-	.get(usersController.getLogout);
+ router.route("/secret")
+ 	.get(authenticatedUser, usersController.secret);
 
 // main app page
 router.route('/songify')
@@ -80,7 +78,7 @@ router.route('/mysearches');
 // 	res.json({message: 'hello world'});
 // });
 
-//*****SEED DATA REST ROUTES******
+//*****RESTful ROUTES******
 
 //show all artists
 router.get('/api/artists', function (req, res) {
