@@ -22,17 +22,17 @@ router.route('/')
 //create new account
 router.route('/signup')
   .get(usersController.getSignup)
-  .post(usersController.postSignup)
+  .post(usersController.postSignup);
 //log into account
 router.route('/login')
   .get(usersController.getLogin)
-  .post(usersController.postLogin)
+  .post(usersController.postLogin);
 
 router.route('/secret')
-  .get(authenticatedUser, usersController.secret)  
+  .get(authenticatedUser, usersController.secret);
 //log out of account
 router.route("/logout")
-  .get(usersController.getLogout)
+  .get(usersController.getLogout);
 
 //Playlist app page
 router.route('/songify')
@@ -42,32 +42,32 @@ router.route('/songify')
 
 //Current user search history
 router.route('/userpage')
-  .get(staticsController.userPage)
+  .get(staticsController.userPage);
 router.route('/userpage/searches')
-  .get(authenticatedUser, artistsController.userSearchData)
+  .get(authenticatedUser, artistsController.userSearchData);
 router.route('/userpage/searches/:searchId')
-  .delete(authenticatedUser, artistsController.deleteSearchData)
+  .delete(authenticatedUser, artistsController.deleteSearchData);
 
 router.route('/songify/:artist')
-  .get(artistsController.getArtistIds)
+  .get(artistsController.getArtistIds);
   //.post(artistsController.postArtistIds)
 
 //overall search data for any user
 router.route('/searches')
   .get(artistsController.getSearches)
   //.post(authenticatedUser, artistsController.postSearch)
-  .post(artistsController.postSearch)
+  .post(artistsController.postSearch);
 
 router.route('/searches/:id')
   .get(artistsController.getOneSearch)
   .put(artistsController.editOneSearch)
-  .delete(artistsController.deleteSearch)
+  .delete(artistsController.deleteSearch);
 
 //user info
- router.route('/user')
-   .get(usersController.userData)
+ // router.route('/user')
+ //   .get(usersController.userData);
 
- router.route('/mysearches')
+ //router.route('/mysearches');
    //.get(authenticatedUser, artistsController.userSearchData)
 
 // router.get('/', function (req, res) {
@@ -170,8 +170,4 @@ router.delete('/api/artists/:id', function (req, res) {
 // });
 
 
-
-
-
-//export routes
 module.exports = router;

@@ -1,7 +1,7 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
@@ -36,7 +36,8 @@
     "mongoose": "^4.11.6",
     "morgan": "^1.8.2",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request": "^2.81.0"
   },
   "description": ""
 }

@@ -1,16 +1,18 @@
 body {
 	background-color: #5E6369;
+	font-family: 'Signika', sans-serif;
 }
-
 .titlepic {
 	display: block;
 	margin-top: 20px;
+	font-family: 'Signika', sans-serif;
 }
 .mainpic {
-	background-image: url(/images/recordplayer2.jpg);
+	background-image: url("http://www.smartcc365.com/data/out/29/860177.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 630px;	
+	height: 730px;	
+	font-family: 'Signika', sans-serif;
 }
 .jumbotron {
 	height: 150px;
@@ -19,23 +21,27 @@ body {
 .banner {
 	height: 115px;
 	background-color: lightgrey;
+	font-family: 'Signika', sans-serif;
 }
 .welcome {
 	display: table;
 	margin: 0 auto;
 	text-align: center;
-
+	font-family: 'Signika', sans-serif;
 }
 h1 {
 	font-size: 70px;
 	margin-top: 0px;
 	text-align: center;
+	font-family: 'Signika', sans-serif;
 }
 
 h2 {
 	text-align: center;
 	color: white;
 	font-size: 50px;
+	font-family: 'Signika', sans-serif;
+
 }
 
 .titleRow {
