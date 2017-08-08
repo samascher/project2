@@ -8,6 +8,36 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+// HARDCORE HARDCODE
+
+var test = [
+{
+	artist: "Abhi the Nomad",
+	track: "Somebody to Love",
+	album: "Somebody to Love Single",
+},
+{
+	artist: "Cage the Elephant",
+	track: "Trouble",
+	album: "Trouble",
+},
+{
+	artist: "Ghostland Observatory",
+	track: "Give Me the Beat",
+	album: "Codename: Rondo",
+},
+{
+	artist: "Cherub",
+	track: "XOXO",
+	album: "MoM & DaD",
+},
+{
+	artist: "LCD Soundsystem",
+	track: "I Can Change",
+	album: "This is Happening",
+},
+];
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev')); 

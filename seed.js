@@ -1,4 +1,3 @@
-
 var db = require('./models');
 
 db.Artist.remove({}, function(err, artists) {
@@ -30,7 +29,6 @@ var test = [
 	album: "Turn on the Bright Lights"
 },
 ];
-
 
 db.Artist.create(test, function(err, artists) {
 	if (err) {
