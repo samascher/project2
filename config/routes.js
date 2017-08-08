@@ -37,9 +37,6 @@ router.route("/logout")
 //Playlist app page
 router.route('/nextSong')
   .get(staticsController.appPage);
-  //login to access this page
-  //.get(authenticatedUser, staticsController.appPage);
-
 //Current user search history
 router.route('/userpage')
   .get(staticsController.userPage);
@@ -48,7 +45,7 @@ router.route('/userpage/searches')
 router.route('/userpage/searches/:searchId')
   .delete(authenticatedUser, artistsController.deleteSearchData);
 
-router.route('/newSong/:artist')
+router.route('/nextSong/:artist')
   .get(artistsController.getArtistIds);
   //.post(artistsController.postArtistIds)
 
@@ -166,7 +163,6 @@ var test = [
 ];
 
 //HARD CODED TESTS
-//show index
 
 // app.get('/api/artists', function artistIndex(req, res) {
 // 	res.json({test : test});
