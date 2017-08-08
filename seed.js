@@ -7,26 +7,33 @@ db.Artist.remove({}, function(err, artists) {
 	console.log('removed all artists');
 });
 
+//hardcode hardcore
+
 var test = [
 {
-	artist: "Spoon",
-	track: "Fitted Shirt",
-	album: "Kill the Moonlight"
+	artist: "Abhi the Nomad",
+	track: "Somebody to Love",
+	album: "Somebody to Love Single",
 },
 {
-	artist: "Autlux",
-	track: "Sugarless",
-	album: "Future Perfect"
+	artist: "Cage the Elephant",
+	track: "Trouble",
+	album: "Trouble",
 },
 {
-	artist: "Pixies",
-	track: "Wave of Mutilation",
-	album: "Doolittle"
+	artist: "Ghostland Observatory",
+	track: "Give Me the Beat",
+	album: "Codename: Rondo",
 },
 {
-	artist: "Interpol",
-	track: "PDA",
-	album: "Turn on the Bright Lights"
+	artist: "Cherub",
+	track: "XOXO",
+	album: "MoM & DaD",
+},
+{
+	artist: "LCD Soundsystem",
+	track: "I Can Change",
+	album: "This is Happening",
 },
 ];
 
