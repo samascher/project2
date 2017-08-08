@@ -1,81 +1,103 @@
 body {
-	background-color: #5E6369;
-	font-family: 'Signika', sans-serif;
+	background-color: #90AFC5;
+	font-family: 'Poppins', sans-serif;
 }
+
 .titlepic {
 	display: block;
 	margin-top: 20px;
-	font-family: 'Signika', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
-.mainpic {
-	background-image: url("http://www.smartcc365.com/data/out/29/860177.jpg");
+
+/*.mainpic {
+	background: black;
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 730px;	
-	font-family: 'Signika', sans-serif;
-}
+	font-family: 'Poppins', sans-serif;
+}*/
+
 .jumbotron {
 	height: 150px;
+	font-family: 'Poppins', sans-serif;
 }
 
 .banner {
 	height: 115px;
-	background-color: lightgrey;
-	font-family: 'Signika', sans-serif;
+	color: #763626;
+/*	background-color: lightgrey;
+*/	font-family: 'Poppins', sans-serif;
 }
 .welcome {
 	display: table;
 	margin: 0 auto;
 	text-align: center;
-	font-family: 'Signika', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
+
 h1 {
 	font-size: 70px;
 	margin-top: 0px;
 	text-align: center;
-	font-family: 'Signika', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 h2 {
 	text-align: center;
 	color: white;
 	font-size: 50px;
-	font-family: 'Signika', sans-serif;
-
+	font-family: 'Poppins', sans-serif;
 }
 
 .titleRow {
 	display: block;
 	height: 150px;
 	margin: 0 auto;
+	font-family: 'Poppins', sans-serif;
+
 }
 
 .col-md-6 {
 	padding: 30px;
+	font-family: 'Poppins', sans-serif;
 }
 
 a {
 	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	font-color: #2A3132;
 }
 
 .playlist {
 	display: table;
 	margin: 0 auto;
-}
-.clearButton {
-	text-align: center;
+	font-family: 'Poppins', sans-serif;
+
 }
 
-.glyphicon {
+.clearButton {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+
+}
+
+/*.glyphicon {
 	font-size: 30px;
 	color: black;
-}
+	font-family: 'Poppins', sans-serif;
+
+}*/
+
 .navbar-brand {
 	padding-top: 10px;
+	font-family: 'Poppins', sans-serif;
+	font-color: #763626;
 }
 
 .inline-header {
   display: inline-block;
   vertical-align: baseline;
   margin-right: 12px;
+  font-family: 'Poppins', sans-serif;
+  color: #5E6369;
 }

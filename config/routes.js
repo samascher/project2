@@ -35,7 +35,7 @@ router.route("/logout")
   .get(usersController.getLogout);
 
 //Playlist app page
-router.route('/songify')
+router.route('/nextSong')
   .get(staticsController.appPage);
   //login to access this page
   //.get(authenticatedUser, staticsController.appPage);
@@ -48,7 +48,7 @@ router.route('/userpage/searches')
 router.route('/userpage/searches/:searchId')
   .delete(authenticatedUser, artistsController.deleteSearchData);
 
-router.route('/songify/:artist')
+router.route('/newSong/:artist')
   .get(artistsController.getArtistIds);
   //.post(artistsController.postArtistIds)
 
@@ -63,12 +63,12 @@ router.route('/searches/:id')
   .put(artistsController.editOneSearch)
   .delete(artistsController.deleteSearch);
 
-//user info
- // router.route('/user')
- //   .get(usersController.userData);
+// // user info
+//  router.route('/user')
+//    .get(usersController.userData);
 
- //router.route('/mysearches');
-   //.get(authenticatedUser, artistsController.userSearchData)
+ // router.route('/mysearches');
+   // .get(authenticatedUser, artistsController.userSearchData);
 
 // router.get('/', function (req, res) {
 // 	res.json({message: 'hello world'});
@@ -135,32 +135,35 @@ router.delete('/api/artists/:id', function (req, res) {
 	});
 });
 
+// help
 
-
-//hardcode test data
-
-// var test = [
-// {
-// 	artist: "Spoon",
-// 	track: "Fitted Shirt",
-// 	album: "Kill the Moonlight"
-// },
-// {
-// 	artist: "Autlux",
-// 	track: "Sugarless",
-// 	album: "Future Perfect"
-// },
-// {
-// 	artist: "Pixies",
-// 	track: "Wave of Mutilation",
-// 	album: "Doolittle"
-// },
-// {
-// 	artist: "Interpol",
-// 	track: "PDA",
-// 	album: "Turn on the Bright Lights"
-// },
-// ];
+var test = [
+{
+	artist: "Abhi the Nomad",
+	track: "Somebody to Love",
+	album: "Somebody to Love Single",
+},
+{
+	artist: "Cage the Elephant",
+	track: "Trouble",
+	album: "Trouble",
+},
+{
+	artist: "Ghostland Observatory",
+	track: "Give Me the Beat",
+	album: "Codename: Rondo",
+},
+{
+	artist: "Cherub",
+	track: "XOXO",
+	album: "MoM & DaD",
+},
+{
+	artist: "LCD Soundsystem",
+	track: "I Can Change",
+	album: "This is Happening",
+},
+];
 
 //HARD CODED TESTS
 //show index
