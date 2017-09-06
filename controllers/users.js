@@ -1,4 +1,4 @@
-var passport = require("passport")
+var passport = require("passport");
 
 // GET /signup
 function getSignup(request, response, next) {
@@ -25,7 +25,7 @@ function getLogin(request, response, next) {
 // POST /login 
 function postLogin(request, response, next) {
 	var loginStrategy = passport.authenticate('local-login', {
-		successRedirect: '/',
+		successRedirect: '/userpage',
 		failureRedirect: '/login',
 		failureFlash: true
 	});
@@ -51,4 +51,4 @@ module.exports = {
   postSignup: postSignup,
   getLogout: getLogout,
   secret: secret
-}
+};
