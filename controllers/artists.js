@@ -1,6 +1,8 @@
 var request = require('request');
 var db = require('../models');
 
+
+
 //GET ids and send to front end
 function getArtistIds (req, res, next) {
 	var userId = req.user._id;

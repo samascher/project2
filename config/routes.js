@@ -22,50 +22,53 @@ router.route('/')
 //create new account
 router.route('/signup')
   .get(usersController.getSignup)
-  .post(usersController.postSignup);
+  .post(usersController.postSignup)
 //log into account
 router.route('/login')
   .get(usersController.getLogin)
-  .post(usersController.postLogin);
+  .post(usersController.postLogin)
 
 router.route('/secret')
-  .get(authenticatedUser, usersController.secret);
+  .get(authenticatedUser, usersController.secret)  
 //log out of account
 router.route("/logout")
-  .get(usersController.getLogout);
+  .get(usersController.getLogout)
 
 //Playlist app page
-router.route('/nextSong')
+router.route('/songify')
   .get(staticsController.appPage);
+  //login to access this page
+  //.get(authenticatedUser, staticsController.appPage);
+
 //Current user search history
 router.route('/userpage')
-  .get(staticsController.userPage);
+  .get(staticsController.userPage)
 router.route('/userpage/searches')
-  .get(authenticatedUser, artistsController.userSearchData);
+  .get(authenticatedUser, artistsController.userSearchData)
 router.route('/userpage/searches/:searchId')
-  .delete(authenticatedUser, artistsController.deleteSearchData);
+  .delete(authenticatedUser, artistsController.deleteSearchData)
 
-router.route('/nextSong/:artist')
-  .get(artistsController.getArtistIds);
+router.route('/songify/:artist')
+  .get(artistsController.getArtistIds)
   //.post(artistsController.postArtistIds)
 
 //overall search data for any user
 router.route('/searches')
   .get(artistsController.getSearches)
   //.post(authenticatedUser, artistsController.postSearch)
-  .post(artistsController.postSearch);
+  .post(artistsController.postSearch)
 
 router.route('/searches/:id')
   .get(artistsController.getOneSearch)
   .put(artistsController.editOneSearch)
-  .delete(artistsController.deleteSearch);
+  .delete(artistsController.deleteSearch)
 
-// // user info
-//  router.route('/user')
-//    .get(usersController.userData);
+//user info
+ router.route('/user')
+   .get(usersController.userData)
 
- // router.route('/mysearches');
-   // .get(authenticatedUser, artistsController.userSearchData);
+ router.route('/mysearches')
+   //.get(authenticatedUser, artistsController.userSearchData)
 
 // router.get('/', function (req, res) {
 // 	res.json({message: 'hello world'});
@@ -132,41 +135,43 @@ router.delete('/api/artists/:id', function (req, res) {
 	});
 });
 
-// help
 
-var test = [
-{
-	artist: "Abhi the Nomad",
-	track: "Somebody to Love",
-	album: "Somebody to Love Single",
-},
-{
-	artist: "Cage the Elephant",
-	track: "Trouble",
-	album: "Trouble",
-},
-{
-	artist: "Ghostland Observatory",
-	track: "Give Me the Beat",
-	album: "Codename: Rondo",
-},
-{
-	artist: "Cherub",
-	track: "XOXO",
-	album: "MoM & DaD",
-},
-{
-	artist: "LCD Soundsystem",
-	track: "I Can Change",
-	album: "This is Happening",
-},
-];
+
+//hardcode test data
+
+// var test = [
+// {
+// 	artist: "Spoon",
+// 	track: "Fitted Shirt",
+// 	album: "Kill the Moonlight"
+// },
+// {
+// 	artist: "Autlux",
+// 	track: "Sugarless",
+// 	album: "Future Perfect"
+// },
+// {
+// 	artist: "Pixies",
+// 	track: "Wave of Mutilation",
+// 	album: "Doolittle"
+// },
+// {
+// 	artist: "Interpol",
+// 	track: "PDA",
+// 	album: "Turn on the Bright Lights"
+// },
+// ];
 
 //HARD CODED TESTS
+//show index
 
 // app.get('/api/artists', function artistIndex(req, res) {
 // 	res.json({test : test});
 // });
 
 
+
+
+
+//export routes
 module.exports = router;

@@ -1,36 +1,37 @@
 var passport = require("passport");
+var db = require('../models');
 
 // GET /signup
-function getSignup(request, response, next) {
-	response.render('signup.ejs', { message: request.flash('signupMessage') });
-}
+  function getSignup(request, response, next) {
+    response.render('signup.ejs', { message: request.flash('signupMessage') });
+  }
 
 // POST /signup
-function postSignup(request, response, next) {
-	//save a new user 
-	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect: '/',
-		failureRedirect: '/signup',
-		failureFlash: true
-	});
+  function postSignup(request, response, next) {
+    var signupStrategy = passport.authenticate('local-signup', {
+      successRedirect : '/',
+      failureRedirect : '/signup',
+      failureFlash : true
+    });
 
-	return signupStrategy(request, response, next);
-}
+    return signupStrategy(request, response, next);
+  }
 
 // GET /login
 function getLogin(request, response, next) { 
-	response.render('login.ejs', { message: request.flash('loginMessage') });
+	response.render('login.ejs', {message: request.flash('loginMessage')});
 }
 
 // POST /login 
 function postLogin(request, response, next) {
-	var loginStrategy = passport.authenticate('local-login', {
-		successRedirect: '/userpage',
+	var loginStrategy = passport.authenticate('local-loggins', {
+		successRedirect: '/',
 		failureRedirect: '/login',
 		failureFlash: true
 	});
-
+  //console.log(request.user);
 	return loginStrategy(request, response, next);
+
 }
 
 // GET /logout
@@ -40,8 +41,20 @@ function getLogout(request, response, next) {
 }
 
 // Restricted page
-function secret(request, response){
-	response.render('secret.ejs');
+function secret(request, response, next){
+	response.json("secrets sink ships...");
+  console.log(request.user._id);
+}
+
+//get user data
+function userData(request, response, next){
+  db.User.find({}, function(err, users) {
+    //var parseUser = JSON.parse(users);
+    response.json(users);
+  });
+  //console.log(response.locals.currentUser);
+
+
 }
 
 module.exports = {
@@ -50,5 +63,6 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
+  secret: secret,
+  userData: userData
 };

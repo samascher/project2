@@ -1,10 +1,10 @@
 var LocalStrategy = require('passport-local').Strategy;
-
 var User = require('../models/user');
 
 module.exports = function(passport) {
 
 	passport.serializeUser(function(user, callback){
+		console.log("serializeUser");
 		callback(null, user.id);
 	});
 
@@ -41,7 +41,7 @@ module.exports = function(passport) {
 		});
 	}));
 
-	passport.use('local-login', new LocalStrategy({
+	passport.use('local-loggins', new LocalStrategy({
     usernameField : 'email',
     passwordField : 'password',
     passReqToCallback : true

@@ -3,11 +3,11 @@ function home(req, res) {
 }
 
 function appPage(req, res) {
-  res.render('app');
+	res.render('app');
 }
 
 function userPage(req, res, next) {
-  res.render('userpage');
+	res.render('userpage');
 }
 
 module.exports = {
